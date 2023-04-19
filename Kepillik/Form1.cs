@@ -10,11 +10,42 @@ using System.Windows.Forms;
 
 namespace Kepillik
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        public Form1()
+        public Point mouseLocation;
+        public LoginForm()
         {
             InitializeComponent();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void mouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X,mouseLocation.Y);
+                Location = mousePose;
+            }
         }
     }
 }
