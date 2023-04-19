@@ -17,7 +17,7 @@ namespace Kepillik
         {
             InitializeComponent();
         }
-
+        public bool isPasswordBlank;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -59,6 +59,53 @@ namespace Kepillik
 
                 usernameBox.Text = "     Username";
                 usernameBox.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void passwordTB_Enter(object sender, EventArgs e)
+        {
+            if (passwordBox.Text == "     Password")
+            {
+                passwordBox.Text = "";
+                passwordBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+                passwordBox.UseSystemPasswordChar = true;
+                isPasswordBlank = true;
+            }
+           
+        }
+
+        private void passwordTB_Leave(object sender, EventArgs e)
+        {
+            if (passwordBox.Text == "")
+            {
+
+                passwordBox.Text = "     Password";
+                passwordBox.ForeColor = Color.DimGray;
+                passwordBox.UseSystemPasswordChar = false;
+                isPasswordBlank = false;
+            }
+
+        }
+
+        private void closedEyeImage_Click(object sender, EventArgs e)
+        {
+            closedEyeImage.Visible = false;
+            closedEyeImage.Enabled = false;
+
+            openedEyeImage.Visible = true;
+            openedEyeImage.Enabled = true;
+            passwordBox.UseSystemPasswordChar = false;
+        }
+
+        private void openedEyeImage_Click(object sender, EventArgs e)
+        {
+            openedEyeImage.Visible = false;
+            openedEyeImage.Enabled = false;
+            closedEyeImage.Visible = true;
+            closedEyeImage.Enabled = true;
+            if (isPasswordBlank)
+            {
+                passwordBox.UseSystemPasswordChar = true;
             }
         }
     }

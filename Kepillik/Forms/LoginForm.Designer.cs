@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.minimizeButton = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.kepillikLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.usernameBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passwordBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.closedEyeImage = new System.Windows.Forms.PictureBox();
+            this.openedEyeImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.closedEyeImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openedEyeImage)).BeginInit();
             this.SuspendLayout();
             // 
             // minimizeButton
@@ -69,11 +75,11 @@
             // 
             this.kepillikLabel.AutoSize = true;
             this.kepillikLabel.BackColor = System.Drawing.Color.Transparent;
-            this.kepillikLabel.Font = new System.Drawing.Font("Segoe UI", 18.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.kepillikLabel.Font = new System.Drawing.Font("Segoe UI", 20.99F, System.Drawing.FontStyle.Bold);
             this.kepillikLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(230)))), ((int)(((byte)(175)))));
-            this.kepillikLabel.Location = new System.Drawing.Point(352, 59);
+            this.kepillikLabel.Location = new System.Drawing.Point(337, 47);
             this.kepillikLabel.Name = "kepillikLabel";
-            this.kepillikLabel.Size = new System.Drawing.Size(103, 35);
+            this.kepillikLabel.Size = new System.Drawing.Size(115, 38);
             this.kepillikLabel.TabIndex = 12;
             this.kepillikLabel.Text = "Kepillik";
             this.kepillikLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -94,7 +100,7 @@
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameBox.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold);
             this.usernameBox.ForeColor = System.Drawing.Color.DimGray;
-            this.usernameBox.Location = new System.Drawing.Point(304, 125);
+            this.usernameBox.Location = new System.Drawing.Point(300, 185);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(188, 32);
             this.usernameBox.TabIndex = 23;
@@ -102,17 +108,54 @@
             this.usernameBox.Enter += new System.EventHandler(this.usernameTB_Enter);
             this.usernameBox.Leave += new System.EventHandler(this.usernameTB_Leave);
             // 
-            // textBox1
+            // passwordBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(17)))), ((int)(((byte)(48)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(304, 199);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 32);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.Text = "     Password";
+            this.passwordBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(17)))), ((int)(((byte)(48)))));
+            this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordBox.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold);
+            this.passwordBox.ForeColor = System.Drawing.Color.DimGray;
+            this.passwordBox.Location = new System.Drawing.Point(300, 248);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.Size = new System.Drawing.Size(188, 32);
+            this.passwordBox.TabIndex = 24;
+            this.passwordBox.Text = "     Password";
+            this.passwordBox.Enter += new System.EventHandler(this.passwordTB_Enter);
+            this.passwordBox.Leave += new System.EventHandler(this.passwordTB_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Teal;
+            this.label1.Location = new System.Drawing.Point(351, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 35);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Login";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // closedEyeImage
+            // 
+            this.closedEyeImage.Image = ((System.Drawing.Image)(resources.GetObject("closedEyeImage.Image")));
+            this.closedEyeImage.Location = new System.Drawing.Point(494, 248);
+            this.closedEyeImage.Name = "closedEyeImage";
+            this.closedEyeImage.Size = new System.Drawing.Size(32, 32);
+            this.closedEyeImage.TabIndex = 26;
+            this.closedEyeImage.TabStop = false;
+            this.closedEyeImage.Click += new System.EventHandler(this.closedEyeImage_Click);
+            // 
+            // openedEyeImage
+            // 
+            this.openedEyeImage.Enabled = false;
+            this.openedEyeImage.Image = ((System.Drawing.Image)(resources.GetObject("openedEyeImage.Image")));
+            this.openedEyeImage.Location = new System.Drawing.Point(494, 248);
+            this.openedEyeImage.Name = "openedEyeImage";
+            this.openedEyeImage.Size = new System.Drawing.Size(32, 32);
+            this.openedEyeImage.TabIndex = 27;
+            this.openedEyeImage.TabStop = false;
+            this.openedEyeImage.Visible = false;
+            this.openedEyeImage.Click += new System.EventHandler(this.openedEyeImage_Click);
             // 
             // LoginForm
             // 
@@ -120,7 +163,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(11)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.openedEyeImage);
+            this.Controls.Add(this.closedEyeImage);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kepillikLabel);
@@ -130,6 +176,8 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "loginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.closedEyeImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openedEyeImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +190,10 @@
         private System.Windows.Forms.Label kepillikLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox usernameBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox passwordBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox closedEyeImage;
+        private System.Windows.Forms.PictureBox openedEyeImage;
     }
 }
 
