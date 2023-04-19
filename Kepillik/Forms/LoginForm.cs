@@ -27,12 +27,6 @@ namespace Kepillik
         {
             Application.Exit();
         }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void mouseDown(object sender, MouseEventArgs e)
         {
             mouseLocation = new Point(-e.X, -e.Y);
@@ -47,5 +41,7 @@ namespace Kepillik
                 Location = mousePose;
             }
         }
+
+      
     }
 }
