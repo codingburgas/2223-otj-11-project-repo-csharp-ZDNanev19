@@ -42,6 +42,24 @@ namespace Kepillik
             }
         }
 
-      
+        private void usernameTB_Enter(object sender, EventArgs e)
+        {
+            if (usernameBox.Text == "     Username")
+            {
+                usernameBox.Text = "";
+                usernameBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+           
+        }
+
+        private void usernameTB_Leave(object sender, EventArgs e)
+        {
+            if (usernameBox.Text == "")
+            {
+
+                usernameBox.Text = "     Username";
+                usernameBox.ForeColor = Color.DimGray;
+            }
+        }
     }
 }
