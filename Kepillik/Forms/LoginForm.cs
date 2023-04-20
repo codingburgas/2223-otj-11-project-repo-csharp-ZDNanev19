@@ -18,7 +18,7 @@ namespace Kepillik
             InitializeComponent();
         }
         public bool isPasswordBlank;
-        
+        public bool isEyeOpened=false;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -65,13 +65,18 @@ namespace Kepillik
 
         private void passwordTB_Enter(object sender, EventArgs e)
         {
-            if (passwordBox.Text == "     Password")
+            if (passwordBox.Text == "     Password" )
             {
                 passwordBox.Text = "";
                 passwordBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
                 passwordBox.UseSystemPasswordChar = false;
                 isPasswordBlank = true;
             }
+            if (!isEyeOpened)
+            {
+                passwordBox.UseSystemPasswordChar = true;
+            }
+          
            
         }
 
@@ -96,6 +101,7 @@ namespace Kepillik
             openedEyeImage.Visible = true;
             openedEyeImage.Enabled = true;
             passwordBox.UseSystemPasswordChar = false;
+            isEyeOpened = true;
         }
 
         private void openedEyeImage_Click(object sender, EventArgs e)
@@ -108,6 +114,7 @@ namespace Kepillik
             {
                 passwordBox.UseSystemPasswordChar = true;
             }
+            isEyeOpened = false;
         }
 
        
