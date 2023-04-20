@@ -171,6 +171,7 @@
             this.fpLabel.TabIndex = 28;
             this.fpLabel.Text = "Forgot password?";
             this.fpLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.fpLabel.Click += new System.EventHandler(this.fpLabel_Click);
             // 
             // loginButton
             // 

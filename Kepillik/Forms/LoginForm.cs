@@ -117,6 +117,13 @@ namespace Kepillik
             isEyeOpened = false;
         }
 
-       
+     
+
+        private void fpLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Forms.forgotPassForm frm = new Forms.forgotPassForm();
+            frm.ShowDialog();
+        }
     }
 }
