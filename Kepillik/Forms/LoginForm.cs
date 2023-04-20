@@ -87,7 +87,7 @@ namespace Kepillik
 
                 passwordBox.Text = "     Password";
                 passwordBox.ForeColor = Color.DimGray;
-              
+                passwordBox.UseSystemPasswordChar = false;
                 isPasswordBlank = false;
             }
 
