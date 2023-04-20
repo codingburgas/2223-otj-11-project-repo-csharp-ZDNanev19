@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.closedEyeImage = new System.Windows.Forms.PictureBox();
             this.openedEyeImage = new System.Windows.Forms.PictureBox();
+            this.fpLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.closedEyeImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openedEyeImage)).BeginInit();
             this.SuspendLayout();
@@ -157,12 +159,41 @@
             this.openedEyeImage.Visible = false;
             this.openedEyeImage.Click += new System.EventHandler(this.openedEyeImage_Click);
             // 
+            // fpLabel
+            // 
+            this.fpLabel.AutoSize = true;
+            this.fpLabel.BackColor = System.Drawing.Color.Transparent;
+            this.fpLabel.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Bold);
+            this.fpLabel.ForeColor = System.Drawing.Color.Teal;
+            this.fpLabel.Location = new System.Drawing.Point(329, 300);
+            this.fpLabel.Name = "fpLabel";
+            this.fpLabel.Size = new System.Drawing.Size(134, 20);
+            this.fpLabel.TabIndex = 28;
+            this.fpLabel.Text = "Forgot password?";
+            this.fpLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // loginButton
+            // 
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(48)))));
+            this.loginButton.FlatAppearance.BorderSize = 0;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(230)))), ((int)(((byte)(175)))));
+            this.loginButton.Location = new System.Drawing.Point(339, 344);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(111, 40);
+            this.loginButton.TabIndex = 29;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(11)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.fpLabel);
             this.Controls.Add(this.openedEyeImage);
             this.Controls.Add(this.closedEyeImage);
             this.Controls.Add(this.label1);
@@ -194,6 +225,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox closedEyeImage;
         private System.Windows.Forms.PictureBox openedEyeImage;
+        private System.Windows.Forms.Label fpLabel;
+        private System.Windows.Forms.Button loginButton;
     }
 }
 

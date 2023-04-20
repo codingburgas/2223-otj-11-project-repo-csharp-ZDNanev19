@@ -18,6 +18,7 @@ namespace Kepillik
             InitializeComponent();
         }
         public bool isPasswordBlank;
+        
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -108,5 +109,7 @@ namespace Kepillik
                 passwordBox.UseSystemPasswordChar = true;
             }
         }
+
+       
     }
 }
