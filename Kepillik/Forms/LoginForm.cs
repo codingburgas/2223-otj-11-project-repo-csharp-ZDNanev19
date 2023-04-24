@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Kepillik
 {
     public partial class LoginForm : Form
@@ -20,6 +19,7 @@ namespace Kepillik
         public bool isPasswordBlank;
         public bool isEyeOpened=false;
         public bool isButtonPressed=false;
+       
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -77,8 +77,8 @@ namespace Kepillik
             {
                 passwordBox.UseSystemPasswordChar = true;
             }
-          
-           
+            
+
         }
 
         private void passwordTB_Leave(object sender, EventArgs e)
@@ -116,6 +116,7 @@ namespace Kepillik
                 passwordBox.UseSystemPasswordChar = true;
             }
             isEyeOpened = false;
+           
         }
 
      
