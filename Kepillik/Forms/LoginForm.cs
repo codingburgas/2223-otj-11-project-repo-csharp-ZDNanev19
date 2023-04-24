@@ -229,5 +229,14 @@ namespace Kepillik
                 Cursor.Current = Cursors.Arrow;
             }
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Forms.dashboardForm frm = new Forms.dashboardForm();
+            frm.ShowDialog();
+        }
+
+       
     }
 }

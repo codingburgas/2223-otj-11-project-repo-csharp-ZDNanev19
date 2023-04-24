@@ -88,11 +88,12 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(32)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(727, 33);
             this.panel1.TabIndex = 13;
+          
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
@@ -195,6 +196,7 @@
             this.loginButton.TabIndex = 29;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             this.loginButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginButtonPressed);
             this.loginButton.MouseLeave += new System.EventHandler(this.loginButtonLeave);
             this.loginButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.loginButtonMove);
