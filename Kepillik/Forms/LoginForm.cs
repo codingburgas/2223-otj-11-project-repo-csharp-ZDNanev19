@@ -19,6 +19,7 @@ namespace Kepillik
         }
         public bool isPasswordBlank;
         public bool isEyeOpened=false;
+        public bool isButtonPressed=false;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -141,6 +142,91 @@ namespace Kepillik
             fpLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
 
             Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void loginButtonMove(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void loginButtonLeave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void openedEyeImageMove(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void openedEyeImageLeave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void closedEyeImageMove(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void closedEyeImageLeave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void loginButtonPressed(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void forgotPassPressed(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void openedEyeImagePressed(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void ClosedEyeImagePressed(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
         }
     }
 }

@@ -146,6 +146,9 @@
             this.closedEyeImage.TabIndex = 26;
             this.closedEyeImage.TabStop = false;
             this.closedEyeImage.Click += new System.EventHandler(this.closedEyeImage_Click);
+            this.closedEyeImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ClosedEyeImagePressed);
+            this.closedEyeImage.MouseLeave += new System.EventHandler(this.closedEyeImageLeave);
+            this.closedEyeImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.closedEyeImageMove);
             // 
             // openedEyeImage
             // 
@@ -158,6 +161,9 @@
             this.openedEyeImage.TabStop = false;
             this.openedEyeImage.Visible = false;
             this.openedEyeImage.Click += new System.EventHandler(this.openedEyeImage_Click);
+            this.openedEyeImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.openedEyeImagePressed);
+            this.openedEyeImage.MouseLeave += new System.EventHandler(this.openedEyeImageLeave);
+            this.openedEyeImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.openedEyeImageMove);
             // 
             // fpLabel
             // 
@@ -172,7 +178,7 @@
             this.fpLabel.Text = "Forgot password?";
             this.fpLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.fpLabel.Click += new System.EventHandler(this.fpLabel_Click);
-         
+            this.fpLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.forgotPassPressed);
             this.fpLabel.MouseLeave += new System.EventHandler(this.forgotPassLeave);
             this.fpLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.forgotPassMove);
             // 
@@ -189,6 +195,9 @@
             this.loginButton.TabIndex = 29;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginButtonPressed);
+            this.loginButton.MouseLeave += new System.EventHandler(this.loginButtonLeave);
+            this.loginButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.loginButtonMove);
             // 
             // LoginForm
             // 
