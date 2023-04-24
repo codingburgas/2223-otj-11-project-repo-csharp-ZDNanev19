@@ -125,5 +125,22 @@ namespace Kepillik
             Forms.forgotPassForm frm = new Forms.forgotPassForm();
             frm.ShowDialog();
         }
+
+       
+
+        private void forgotPassLeave(object sender, EventArgs e)
+        {
+            fpLabel.ForeColor = Color.Teal;
+            Cursor.Current = Cursors.Arrow;
+        }
+
+      
+
+        private void forgotPassMove(object sender, MouseEventArgs e)
+        {
+            fpLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
+
+            Cursor.Current = Cursors.Hand;
+        }
     }
 }
