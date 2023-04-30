@@ -1,3 +1,4 @@
+
 namespace Kepillik
 {
     internal static class Program
