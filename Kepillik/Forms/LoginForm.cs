@@ -1,45 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 namespace Kepillik
 {
-    public partial class LoginForm : Form
+    public partial class loginForm : Form
     {
-        public Point mouseLocation;
-        public LoginForm()
+        public loginForm()
         {
             InitializeComponent();
         }
+        public Point mouseLocation;
         public bool isPasswordBlank;
-        public bool isEyeOpened=false;
-        public bool isButtonPressed=false;
-       
+        public bool isEyeOpened = false;
+        public bool isButtonPressed = false;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        private void mouseDown(object sender, MouseEventArgs e)
+
+        private void panelMouseDown(object sender, MouseEventArgs e)
         {
             mouseLocation = new Point(-e.X, -e.Y);
         }
 
-        private void mouseMove(object sender, MouseEventArgs e)
+        private void panelMouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 Point mousePose = Control.MousePosition;
-                mousePose.Offset(mouseLocation.X,mouseLocation.Y);
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
             }
         }
@@ -51,7 +42,6 @@ namespace Kepillik
                 usernameBox.Text = "";
                 usernameBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
             }
-           
         }
 
         private void usernameTB_Leave(object sender, EventArgs e)
@@ -64,34 +54,31 @@ namespace Kepillik
             }
         }
 
-        private void passwordTB_Enter(object sender, EventArgs e)
+        private void passTB_Enter(object sender, EventArgs e)
         {
-            if (passwordBox.Text == "     Password" )
+            if (passBox.Text == "     Password")
             {
-                passwordBox.Text = "";
-                passwordBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
-                passwordBox.UseSystemPasswordChar = false;
+                passBox.Text = "";
+                passBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+                passBox.UseSystemPasswordChar = false;
                 isPasswordBlank = true;
             }
             if (!isEyeOpened)
             {
-                passwordBox.UseSystemPasswordChar = true;
+                passBox.UseSystemPasswordChar = true;
             }
-            
-
         }
 
-        private void passwordTB_Leave(object sender, EventArgs e)
+        private void passTB_Leave(object sender, EventArgs e)
         {
-            if (passwordBox.Text == "")
+            if (passBox.Text == "")
             {
 
-                passwordBox.Text = "     Password";
-                passwordBox.ForeColor = Color.DimGray;
-                passwordBox.UseSystemPasswordChar = false;
+                passBox.Text = "     Password";
+                passBox.ForeColor = Color.DimGray;
+                passBox.UseSystemPasswordChar = false;
                 isPasswordBlank = false;
             }
-
         }
 
         private void closedEyeImage_Click(object sender, EventArgs e)
@@ -101,7 +88,7 @@ namespace Kepillik
 
             openedEyeImage.Visible = true;
             openedEyeImage.Enabled = true;
-            passwordBox.UseSystemPasswordChar = false;
+            passBox.UseSystemPasswordChar = false;
             isEyeOpened = true;
         }
 
@@ -113,121 +100,9 @@ namespace Kepillik
             closedEyeImage.Enabled = true;
             if (isPasswordBlank)
             {
-                passwordBox.UseSystemPasswordChar = true;
+                passBox.UseSystemPasswordChar = true;
             }
             isEyeOpened = false;
-           
-        }
-
-     
-
-        private void fpLabel_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Forms.forgotPassForm frm = new Forms.forgotPassForm();
-            frm.ShowDialog();
-        }
-
-       
-
-        private void forgotPassLeave(object sender, EventArgs e)
-        {
-            fpLabel.ForeColor = Color.Teal;
-            Cursor.Current = Cursors.Arrow;
-        }
-
-      
-
-        private void forgotPassMove(object sender, MouseEventArgs e)
-        {
-            fpLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
-
-            Cursor.Current = Cursors.Hand;
-            isButtonPressed = true;
-        }
-
-        private void loginButtonMove(object sender, MouseEventArgs e)
-        {
-            Cursor.Current = Cursors.Hand;
-            isButtonPressed = true;
-        }
-
-        private void loginButtonLeave(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.Arrow;
-            isButtonPressed = false;
-        }
-
-        private void openedEyeImageMove(object sender, MouseEventArgs e)
-        {
-            Cursor.Current = Cursors.Hand;
-            isButtonPressed = true;
-        }
-
-        private void openedEyeImageLeave(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.Arrow;
-            isButtonPressed = false;
-        }
-
-        private void closedEyeImageMove(object sender, MouseEventArgs e)
-        {
-            Cursor.Current = Cursors.Hand;
-            isButtonPressed = true;
-        }
-
-        private void closedEyeImageLeave(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.Arrow;
-            isButtonPressed = false;
-        }
-
-        private void loginButtonPressed(object sender, MouseEventArgs e)
-        {
-            if (isButtonPressed)
-            {
-                Cursor.Current = Cursors.Hand;
-            }
-            else
-            {
-                Cursor.Current = Cursors.Arrow;
-            }
-        }
-
-        private void forgotPassPressed(object sender, MouseEventArgs e)
-        {
-            if (isButtonPressed)
-            {
-                Cursor.Current = Cursors.Hand;
-            }
-            else
-            {
-                Cursor.Current = Cursors.Arrow;
-            }
-        }
-
-        private void openedEyeImagePressed(object sender, MouseEventArgs e)
-        {
-            if (isButtonPressed)
-            {
-                Cursor.Current = Cursors.Hand;
-            }
-            else
-            {
-                Cursor.Current = Cursors.Arrow;
-            }
-        }
-
-        private void ClosedEyeImagePressed(object sender, MouseEventArgs e)
-        {
-            if (isButtonPressed)
-            {
-                Cursor.Current = Cursors.Hand;
-            }
-            else
-            {
-                Cursor.Current = Cursors.Arrow;
-            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -237,6 +112,109 @@ namespace Kepillik
             frm.ShowDialog();
         }
 
-       
+        private void loginButton_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else 
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void loginButton_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+           
+        }
+
+        private void loginButton_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+           
+        }
+
+        private void forgotPassDown(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void forgotPassLeave(object sender, EventArgs e)
+        {
+            fpLabel.ForeColor = Color.Teal;
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void forgotPassMove(object sender, MouseEventArgs e)
+        {
+            fpLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
+
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void fpLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Forms.forgotPassForm frm = new Forms.forgotPassForm();
+            frm.ShowDialog();
+        }
+
+        private void openedEye_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void openedEye_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void openedEye_Move(object sender, MouseEventArgs e)
+        {
+           Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void closedEye_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void closedEye_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void closedEye_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
     }
 }
