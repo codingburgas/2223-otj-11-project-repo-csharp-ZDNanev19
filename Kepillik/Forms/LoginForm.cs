@@ -38,7 +38,7 @@ namespace Kepillik
 
         private void usernameTB_Enter(object sender, EventArgs e)
         {
-            if (usernameBox.Text == "     Username")
+            if (usernameBox.Text == "     Username or email")
             {
                 usernameBox.Text = "";
                 usernameBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
@@ -50,7 +50,7 @@ namespace Kepillik
             if (usernameBox.Text == "")
             {
 
-                usernameBox.Text = "     Username";
+                usernameBox.Text = "     Username or email";
                 usernameBox.ForeColor = Color.DimGray;
             }
         }
@@ -119,7 +119,7 @@ namespace Kepillik
             {
                 Cursor.Current = Cursors.Hand;
             }
-            else 
+            else
             {
                 Cursor.Current = Cursors.Arrow;
             }
@@ -129,14 +129,14 @@ namespace Kepillik
         {
             Cursor.Current = Cursors.Arrow;
             isButtonPressed = false;
-           
+
         }
 
         private void loginButton_Move(object sender, MouseEventArgs e)
         {
             Cursor.Current = Cursors.Hand;
             isButtonPressed = true;
-           
+
         }
 
         private void forgotPassDown(object sender, MouseEventArgs e)
@@ -191,7 +191,7 @@ namespace Kepillik
 
         private void openedEye_Move(object sender, MouseEventArgs e)
         {
-           Cursor.Current = Cursors.Hand;
+            Cursor.Current = Cursors.Hand;
             isButtonPressed = true;
         }
 

@@ -42,5 +42,54 @@ namespace Kepillik.Forms
                 Location = mousePose;
             }
         }
+
+        private void sendCodeButton_Click(object sender, EventArgs e)
+        {
+            sendCodeButton.Visible = false;
+            emailBox.Visible = false;
+            enterCode.Visible = true;
+            resendButton.Visible = true;
+
+
+
+        }
+
+        private void email_Enter(object sender, EventArgs e)
+        {
+            if (emailBox.Text == "     Enter email address")
+            {
+                emailBox.Text = "";
+                emailBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void email_Leave(object sender, EventArgs e)
+        {
+            if (enterCode.Text == "")
+            {
+
+                enterCode.Text = "     Enter email address";
+                enterCode.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void code_Enter(object sender, EventArgs e)
+        {
+            if (enterCode.Text == "Enter code")
+            {
+                enterCode.Text = "";
+                enterCode.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void code_Leave(object sender, EventArgs e)
+        {
+            if (enterCode.Text == "")
+            {
+
+                enterCode.Text = "Enter code";
+                enterCode.ForeColor = Color.DimGray;
+            }
+        }
     }
 }

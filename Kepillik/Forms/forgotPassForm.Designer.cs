@@ -31,6 +31,11 @@
             movePanel = new Panel();
             minimizeButton = new Button();
             exitButton = new Button();
+            recpassLabel = new Label();
+            emailBox = new TextBox();
+            sendCodeButton = new Button();
+            enterCode = new TextBox();
+            resendButton = new Button();
             SuspendLayout();
             // 
             // movePanel
@@ -72,12 +77,90 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
+            // recpassLabel
+            // 
+            recpassLabel.AutoSize = true;
+            recpassLabel.BackColor = Color.Transparent;
+            recpassLabel.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold, GraphicsUnit.Point);
+            recpassLabel.ForeColor = Color.Teal;
+            recpassLabel.Location = new Point(284, 85);
+            recpassLabel.Name = "recpassLabel";
+            recpassLabel.Size = new Size(225, 35);
+            recpassLabel.TabIndex = 6;
+            recpassLabel.Text = "Recover Password";
+            // 
+            // emailBox
+            // 
+            emailBox.BackColor = Color.FromArgb(0, 17, 48);
+            emailBox.BorderStyle = BorderStyle.None;
+            emailBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            emailBox.ForeColor = Color.DimGray;
+            emailBox.Location = new Point(243, 173);
+            emailBox.Name = "emailBox";
+            emailBox.Size = new Size(291, 32);
+            emailBox.TabIndex = 7;
+            emailBox.Text = "     Enter email address";
+            emailBox.Enter += email_Enter;
+            emailBox.Leave += email_Leave;
+            // 
+            // sendCodeButton
+            // 
+            sendCodeButton.BackColor = Color.FromArgb(0, 27, 48);
+            sendCodeButton.FlatAppearance.BorderSize = 0;
+            sendCodeButton.FlatStyle = FlatStyle.Flat;
+            sendCodeButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            sendCodeButton.ForeColor = Color.FromArgb(62, 230, 175);
+            sendCodeButton.Location = new Point(322, 276);
+            sendCodeButton.Name = "sendCodeButton";
+            sendCodeButton.Size = new Size(131, 43);
+            sendCodeButton.TabIndex = 8;
+            sendCodeButton.Text = "Send code";
+            sendCodeButton.UseVisualStyleBackColor = false;
+            sendCodeButton.Click += sendCodeButton_Click;
+            // 
+            // enterCode
+            // 
+            enterCode.BackColor = Color.FromArgb(0, 17, 48);
+            enterCode.BorderStyle = BorderStyle.None;
+            enterCode.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            enterCode.ForeColor = Color.DimGray;
+            enterCode.Location = new Point(313, 223);
+            enterCode.MaxLength = 9;
+            enterCode.Multiline = true;
+            enterCode.Name = "enterCode";
+            enterCode.Size = new Size(147, 32);
+            enterCode.TabIndex = 9;
+            enterCode.Text = "Enter code";
+            enterCode.Visible = false;
+            enterCode.Enter += code_Enter;
+            enterCode.Leave += code_Leave;
+            // 
+            // resendButton
+            // 
+            resendButton.BackColor = Color.FromArgb(0, 27, 48);
+            resendButton.FlatAppearance.BorderSize = 0;
+            resendButton.FlatStyle = FlatStyle.Flat;
+            resendButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            resendButton.ForeColor = Color.FromArgb(62, 230, 175);
+            resendButton.Location = new Point(322, 340);
+            resendButton.Name = "resendButton";
+            resendButton.Size = new Size(131, 43);
+            resendButton.TabIndex = 10;
+            resendButton.Text = "Resend";
+            resendButton.UseVisualStyleBackColor = false;
+            resendButton.Visible = false;
+            // 
             // forgotPassForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(resendButton);
+            Controls.Add(enterCode);
+            Controls.Add(sendCodeButton);
+            Controls.Add(emailBox);
+            Controls.Add(recpassLabel);
             Controls.Add(exitButton);
             Controls.Add(minimizeButton);
             Controls.Add(movePanel);
@@ -86,6 +169,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "forgotPassForm";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -93,5 +177,10 @@
         private Panel movePanel;
         private Button minimizeButton;
         private Button exitButton;
+        private Label recpassLabel;
+        private TextBox emailBox;
+        private Button sendCodeButton;
+        private TextBox enterCode;
+        private Button resendButton;
     }
 }
