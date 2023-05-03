@@ -36,6 +36,7 @@
             sendCodeButton = new Button();
             enterCode = new TextBox();
             resendButton = new Button();
+            cancelLabel = new Label();
             SuspendLayout();
             // 
             // movePanel
@@ -150,12 +151,29 @@
             resendButton.UseVisualStyleBackColor = false;
             resendButton.Visible = false;
             // 
+            // cancelLabel
+            // 
+            cancelLabel.AutoSize = true;
+            cancelLabel.BackColor = Color.Transparent;
+            cancelLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            cancelLabel.ForeColor = Color.Teal;
+            cancelLabel.Location = new Point(46, 404);
+            cancelLabel.Name = "cancelLabel";
+            cancelLabel.Size = new Size(54, 20);
+            cancelLabel.TabIndex = 11;
+            cancelLabel.Text = "Cancel";
+            cancelLabel.Click += cancelLabel_Click;
+            cancelLabel.MouseDown += cancel_Down;
+            cancelLabel.MouseLeave += cancel_Leave;
+            cancelLabel.MouseMove += cancel_Move;
+            // 
             // forgotPassForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(cancelLabel);
             Controls.Add(resendButton);
             Controls.Add(enterCode);
             Controls.Add(sendCodeButton);
@@ -182,5 +200,6 @@
         private Button sendCodeButton;
         private TextBox enterCode;
         private Button resendButton;
+        private Label cancelLabel;
     }
 }

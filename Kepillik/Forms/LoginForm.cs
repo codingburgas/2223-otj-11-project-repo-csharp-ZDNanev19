@@ -1,4 +1,6 @@
 
+using Kepillik.Forms;
+
 namespace Kepillik
 {
     public partial class loginForm : Form
@@ -109,7 +111,7 @@ namespace Kepillik
         private void loginButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Forms.dashboardForm frm = new Forms.dashboardForm();
+            Form frm = new dashboardForm();
             frm.ShowDialog();
         }
 
@@ -168,7 +170,7 @@ namespace Kepillik
         private void fpLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Forms.forgotPassForm frm = new Forms.forgotPassForm();
+           Form frm=new forgotPassForm();
             frm.ShowDialog();
         }
 

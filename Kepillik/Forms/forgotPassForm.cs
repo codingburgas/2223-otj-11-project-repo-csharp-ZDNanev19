@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,7 @@ namespace Kepillik.Forms
             InitializeComponent();
         }
         public Point mouseLocation;
-
+        public bool isButtonPressed = false;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -90,6 +91,39 @@ namespace Kepillik.Forms
                 enterCode.Text = "Enter code";
                 enterCode.ForeColor = Color.DimGray;
             }
+        }
+
+        private void cancel_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void cancel_Leave(object sender, EventArgs e)
+        {
+            cancelLabel.ForeColor = Color.Teal;
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void cancel_Move(object sender, MouseEventArgs e)
+        {
+            cancelLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
+
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void cancelLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+          Form frm = new loginForm();
+            frm.ShowDialog();
         }
     }
 }
