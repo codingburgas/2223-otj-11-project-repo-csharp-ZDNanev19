@@ -33,6 +33,11 @@
             minimizeButton = new Button();
             exitButton = new Button();
             movePanel = new Panel();
+            signUpLabel = new Label();
+            emailBox = new TextBox();
+            firstNameBox = new TextBox();
+            lastNameBox = new TextBox();
+            ageBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -84,12 +89,77 @@
             movePanel.MouseDown += panelMouse_Down;
             movePanel.MouseMove += panelMouse_Move;
             // 
+            // signUpLabel
+            // 
+            signUpLabel.AutoSize = true;
+            signUpLabel.BackColor = Color.Transparent;
+            signUpLabel.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold, GraphicsUnit.Point);
+            signUpLabel.ForeColor = Color.Teal;
+            signUpLabel.Location = new Point(341, 72);
+            signUpLabel.Name = "signUpLabel";
+            signUpLabel.Size = new Size(104, 35);
+            signUpLabel.TabIndex = 17;
+            signUpLabel.Text = "Sign up";
+            // 
+            // emailBox
+            // 
+            emailBox.BackColor = Color.FromArgb(0, 17, 48);
+            emailBox.BorderStyle = BorderStyle.None;
+            emailBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            emailBox.ForeColor = Color.DimGray;
+            emailBox.Location = new Point(212, 129);
+            emailBox.Name = "emailBox";
+            emailBox.Size = new Size(223, 32);
+            emailBox.TabIndex = 18;
+            emailBox.Text = "           Email";
+            // 
+            // firstNameBox
+            // 
+            firstNameBox.BackColor = Color.FromArgb(0, 17, 48);
+            firstNameBox.BorderStyle = BorderStyle.None;
+            firstNameBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            firstNameBox.ForeColor = Color.DimGray;
+            firstNameBox.Location = new Point(212, 167);
+            firstNameBox.Name = "firstNameBox";
+            firstNameBox.Size = new Size(138, 32);
+            firstNameBox.TabIndex = 19;
+            firstNameBox.Text = "First Name";
+            // 
+            // lastNameBox
+            // 
+            lastNameBox.BackColor = Color.FromArgb(0, 17, 48);
+            lastNameBox.BorderStyle = BorderStyle.None;
+            lastNameBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lastNameBox.ForeColor = Color.DimGray;
+            lastNameBox.Location = new Point(213, 205);
+            lastNameBox.Name = "lastNameBox";
+            lastNameBox.Size = new Size(137, 32);
+            lastNameBox.TabIndex = 20;
+            lastNameBox.Text = "Last Name";
+            // 
+            // ageBox
+            // 
+            ageBox.BackColor = Color.FromArgb(0, 17, 48);
+            ageBox.BorderStyle = BorderStyle.None;
+            ageBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ageBox.ForeColor = Color.DimGray;
+            ageBox.Location = new Point(212, 243);
+            ageBox.Name = "ageBox";
+            ageBox.Size = new Size(52, 32);
+            ageBox.TabIndex = 21;
+            ageBox.Text = "Age";
+            // 
             // signUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(ageBox);
+            Controls.Add(lastNameBox);
+            Controls.Add(firstNameBox);
+            Controls.Add(emailBox);
+            Controls.Add(signUpLabel);
             Controls.Add(movePanel);
             Controls.Add(exitButton);
             Controls.Add(minimizeButton);
@@ -101,6 +171,7 @@
             Text = "signUpForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -109,5 +180,10 @@
         private Button minimizeButton;
         private Button exitButton;
         private Panel movePanel;
+        private Label signUpLabel;
+        private TextBox emailBox;
+        private TextBox firstNameBox;
+        private TextBox lastNameBox;
+        private TextBox ageBox;
     }
 }
