@@ -41,6 +41,7 @@
             closedEyeImage = new PictureBox();
             openedEyeImage = new PictureBox();
             pictureBox1 = new PictureBox();
+            signUpLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -145,7 +146,7 @@
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
             loginButton.ForeColor = Color.FromArgb(62, 230, 175);
-            loginButton.Location = new Point(339, 344);
+            loginButton.Location = new Point(339, 322);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(111, 40);
             loginButton.TabIndex = 7;
@@ -162,7 +163,7 @@
             fpLabel.BackColor = Color.Transparent;
             fpLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
             fpLabel.ForeColor = Color.Teal;
-            fpLabel.Location = new Point(329, 300);
+            fpLabel.Location = new Point(329, 294);
             fpLabel.Name = "fpLabel";
             fpLabel.Size = new Size(134, 20);
             fpLabel.TabIndex = 8;
@@ -208,12 +209,29 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
+            // signUpLabel
+            // 
+            signUpLabel.AutoSize = true;
+            signUpLabel.BackColor = Color.Transparent;
+            signUpLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            signUpLabel.ForeColor = Color.Teal;
+            signUpLabel.Location = new Point(363, 373);
+            signUpLabel.Name = "signUpLabel";
+            signUpLabel.Size = new Size(63, 20);
+            signUpLabel.TabIndex = 12;
+            signUpLabel.Text = "Sign Up";
+            signUpLabel.Click += signUpLabel_Click;
+            signUpLabel.MouseDown += signUp_Down;
+            signUpLabel.MouseLeave += signUp_Leave;
+            signUpLabel.MouseMove += signUp_Move;
+            // 
             // loginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(signUpLabel);
             Controls.Add(pictureBox1);
             Controls.Add(openedEyeImage);
             Controls.Add(closedEyeImage);
@@ -252,5 +270,6 @@
         private PictureBox closedEyeImage;
         private PictureBox openedEyeImage;
         private PictureBox pictureBox1;
+        private Label signUpLabel;
     }
 }

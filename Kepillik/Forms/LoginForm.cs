@@ -219,5 +219,38 @@ namespace Kepillik
             Cursor.Current = Cursors.Hand;
             isButtonPressed = true;
         }
+
+        private void signUp_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void signUp_Leave(object sender, EventArgs e)
+        {
+            signUpLabel.ForeColor = Color.Teal;
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void signUp_Move(object sender, MouseEventArgs e)
+        {
+            signUpLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
+
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void signUpLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form frm = new signUpForm();
+            frm.ShowDialog();
+        }
     }
 }
