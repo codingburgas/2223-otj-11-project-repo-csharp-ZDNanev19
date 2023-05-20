@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -50,6 +51,7 @@ namespace Kepillik.Forms
             emailBox.Visible = false;
             enterCode.Visible = true;
             resendButton.Visible = true;
+            confirmButton.Visible = true;
 
 
 
@@ -122,8 +124,125 @@ namespace Kepillik.Forms
         private void cancelLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-          Form frm = new loginForm();
+            Form frm = new loginForm();
             frm.ShowDialog();
+        }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            //if (codeIsCorrect)
+            //{
+            goBackButton.Visible = true;
+            resendButton.Visible = false;
+            confirmButton.Visible = false;
+            //notCorrectLabel.Visible = false;
+            //}
+            //else{
+            //  notCorrectLabel.Visible = true;
+            //}
+        }
+
+        private void goBackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form frm = new loginForm();
+            frm.ShowDialog();
+        }
+
+        private void sendCode_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void sendCode_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void sendCode_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void confirm_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void confirm_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void confirm_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void resend_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void resend_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void resend_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void back_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void back_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void back_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
         }
     }
 }

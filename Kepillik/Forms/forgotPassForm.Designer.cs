@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(forgotPassForm));
             movePanel = new Panel();
             minimizeButton = new Button();
             exitButton = new Button();
@@ -37,6 +38,11 @@
             enterCode = new TextBox();
             resendButton = new Button();
             cancelLabel = new Label();
+            goBackButton = new Button();
+            notCorrectLabel = new Label();
+            confirmButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // movePanel
@@ -118,6 +124,9 @@
             sendCodeButton.Text = "Send code";
             sendCodeButton.UseVisualStyleBackColor = false;
             sendCodeButton.Click += sendCodeButton_Click;
+            sendCodeButton.MouseDown += sendCode_Down;
+            sendCodeButton.MouseLeave += sendCode_Leave;
+            sendCodeButton.MouseMove += sendCode_Move;
             // 
             // enterCode
             // 
@@ -150,6 +159,9 @@
             resendButton.Text = "Resend";
             resendButton.UseVisualStyleBackColor = false;
             resendButton.Visible = false;
+            resendButton.MouseDown += resend_Down;
+            resendButton.MouseLeave += resend_Leave;
+            resendButton.MouseMove += resend_Move;
             // 
             // cancelLabel
             // 
@@ -167,12 +179,76 @@
             cancelLabel.MouseLeave += cancel_Leave;
             cancelLabel.MouseMove += cancel_Move;
             // 
+            // goBackButton
+            // 
+            goBackButton.BackColor = Color.FromArgb(0, 27, 48);
+            goBackButton.FlatAppearance.BorderSize = 0;
+            goBackButton.FlatStyle = FlatStyle.Flat;
+            goBackButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            goBackButton.ForeColor = Color.FromArgb(62, 230, 175);
+            goBackButton.Location = new Point(305, 361);
+            goBackButton.Name = "goBackButton";
+            goBackButton.Size = new Size(164, 43);
+            goBackButton.TabIndex = 12;
+            goBackButton.Text = "Back to login";
+            goBackButton.UseVisualStyleBackColor = false;
+            goBackButton.Visible = false;
+            goBackButton.Click += goBackButton_Click;
+            goBackButton.MouseDown += back_Down;
+            goBackButton.MouseLeave += back_Leave;
+            goBackButton.MouseMove += back_Move;
+            // 
+            // notCorrectLabel
+            // 
+            notCorrectLabel.AutoSize = true;
+            notCorrectLabel.BackColor = Color.Transparent;
+            notCorrectLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            notCorrectLabel.ForeColor = Color.Teal;
+            notCorrectLabel.Location = new Point(481, 228);
+            notCorrectLabel.Name = "notCorrectLabel";
+            notCorrectLabel.Size = new Size(108, 20);
+            notCorrectLabel.TabIndex = 13;
+            notCorrectLabel.Text = "incorrect code";
+            notCorrectLabel.Visible = false;
+            // 
+            // confirmButton
+            // 
+            confirmButton.BackColor = Color.FromArgb(0, 27, 48);
+            confirmButton.FlatAppearance.BorderSize = 0;
+            confirmButton.FlatStyle = FlatStyle.Flat;
+            confirmButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            confirmButton.ForeColor = Color.FromArgb(62, 230, 175);
+            confirmButton.Location = new Point(305, 284);
+            confirmButton.Name = "confirmButton";
+            confirmButton.Size = new Size(164, 43);
+            confirmButton.TabIndex = 14;
+            confirmButton.Text = "Confirm";
+            confirmButton.UseVisualStyleBackColor = false;
+            confirmButton.Visible = false;
+            confirmButton.Click += confirmButton_Click;
+            confirmButton.MouseDown += confirm_Down;
+            confirmButton.MouseLeave += confirm_Leave;
+            confirmButton.MouseMove += confirm_Move;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.Location = new Point(742, 391);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(46, 47);
+            pictureBox1.TabIndex = 15;
+            pictureBox1.TabStop = false;
+            // 
             // forgotPassForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
+            Controls.Add(confirmButton);
+            Controls.Add(notCorrectLabel);
+            Controls.Add(goBackButton);
             Controls.Add(cancelLabel);
             Controls.Add(resendButton);
             Controls.Add(enterCode);
@@ -183,9 +259,11 @@
             Controls.Add(minimizeButton);
             Controls.Add(movePanel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "forgotPassForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "forgotPassForm";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,5 +279,9 @@
         private TextBox enterCode;
         private Button resendButton;
         private Label cancelLabel;
+        private Button goBackButton;
+        private Label notCorrectLabel;
+        private Button confirmButton;
+        private PictureBox pictureBox1;
     }
 }

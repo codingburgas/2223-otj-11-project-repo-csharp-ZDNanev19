@@ -40,8 +40,10 @@
             fpLabel = new Label();
             closedEyeImage = new PictureBox();
             openedEyeImage = new PictureBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // minimizeButton
@@ -197,12 +199,22 @@
             openedEyeImage.MouseLeave += openedEye_Leave;
             openedEyeImage.MouseMove += openedEye_Move;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.Location = new Point(742, 391);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(46, 47);
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
             // loginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(openedEyeImage);
             Controls.Add(closedEyeImage);
             Controls.Add(fpLabel);
@@ -215,11 +227,13 @@
             Controls.Add(exitButton);
             Controls.Add(minimizeButton);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "loginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,5 +251,6 @@
         private Label fpLabel;
         private PictureBox closedEyeImage;
         private PictureBox openedEyeImage;
+        private PictureBox pictureBox1;
     }
 }

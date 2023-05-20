@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboardForm));
             movePanel = new Panel();
             minimizeButton = new Button();
             exitButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // movePanel
@@ -72,19 +75,31 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.Location = new Point(742, 391);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(46, 47);
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
             // dashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(exitButton);
             Controls.Add(minimizeButton);
             Controls.Add(movePanel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "dashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "dashboardForm";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -93,5 +108,6 @@
         private Panel movePanel;
         private Button minimizeButton;
         private Button exitButton;
+        private PictureBox pictureBox1;
     }
 }

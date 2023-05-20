@@ -170,7 +170,7 @@ namespace Kepillik
         private void fpLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-           Form frm=new forgotPassForm();
+            Form frm = new forgotPassForm();
             frm.ShowDialog();
         }
 
