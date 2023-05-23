@@ -45,13 +45,15 @@
             UserNameBox = new TextBox();
             openedEyeImage = new PictureBox();
             closedEyeImage = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            closedEyeImageCopy = new PictureBox();
+            openedEyeImageCopy = new PictureBox();
+            backLabel = new Label();
+            cancelLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)closedEyeImageCopy).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)openedEyeImageCopy).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -125,6 +127,8 @@
             emailBox.Size = new Size(223, 32);
             emailBox.TabIndex = 18;
             emailBox.Text = "           Email";
+            emailBox.Enter += email_Enter;
+            emailBox.Leave += email_Leave;
             // 
             // firstNameBox
             // 
@@ -137,6 +141,8 @@
             firstNameBox.Size = new Size(138, 32);
             firstNameBox.TabIndex = 19;
             firstNameBox.Text = "First Name";
+            firstNameBox.Enter += fName_Enter;
+            firstNameBox.Leave += fName_Leave;
             // 
             // lastNameBox
             // 
@@ -149,6 +155,8 @@
             lastNameBox.Size = new Size(137, 32);
             lastNameBox.TabIndex = 20;
             lastNameBox.Text = "Last Name";
+            lastNameBox.Enter += lName_Enter;
+            lastNameBox.Leave += lName_Leave;
             // 
             // ageBox
             // 
@@ -157,10 +165,13 @@
             ageBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             ageBox.ForeColor = Color.DimGray;
             ageBox.Location = new Point(212, 243);
+            ageBox.MaxLength = 3;
             ageBox.Name = "ageBox";
             ageBox.Size = new Size(52, 32);
             ageBox.TabIndex = 21;
             ageBox.Text = "Age";
+            ageBox.Enter += age_Enter;
+            ageBox.Leave += age_Leave;
             // 
             // passBox
             // 
@@ -174,6 +185,8 @@
             passBox.TabIndex = 22;
             passBox.Text = "     Password";
             passBox.Visible = false;
+            passBox.Enter += pass_Enter;
+            passBox.Leave += pass_Leave;
             // 
             // repeatBox
             // 
@@ -187,6 +200,8 @@
             repeatBox.TabIndex = 23;
             repeatBox.Text = "Repeat Password";
             repeatBox.Visible = false;
+            repeatBox.Enter += repeat_Enter;
+            repeatBox.Leave += repeat_Leave;
             // 
             // continueButton
             // 
@@ -201,6 +216,10 @@
             continueButton.TabIndex = 24;
             continueButton.Text = "Continue";
             continueButton.UseVisualStyleBackColor = false;
+            continueButton.Click += continueButton_Click;
+            continueButton.MouseDown += continue_Down;
+            continueButton.MouseLeave += continue_Leave;
+            continueButton.MouseMove += continue_Move;
             // 
             // signUpButton
             // 
@@ -216,6 +235,10 @@
             signUpButton.Text = "Sign up";
             signUpButton.UseVisualStyleBackColor = false;
             signUpButton.Visible = false;
+            signUpButton.Click += signUpButton_Click;
+            signUpButton.MouseDown += signUp_Down;
+            signUpButton.MouseLeave += signUp_Leave;
+            signUpButton.MouseMove += signUp_Move;
             // 
             // UserNameBox
             // 
@@ -229,6 +252,8 @@
             UserNameBox.TabIndex = 26;
             UserNameBox.Text = "     Username";
             UserNameBox.Visible = false;
+            UserNameBox.Enter += userName_Enter;
+            UserNameBox.Leave += userName_Leave;
             // 
             // openedEyeImage
             // 
@@ -239,34 +264,85 @@
             openedEyeImage.TabIndex = 27;
             openedEyeImage.TabStop = false;
             openedEyeImage.Visible = false;
+            openedEyeImage.Click += openedEyeImage_Click;
+            openedEyeImage.MouseDown += opened_Down;
+            openedEyeImage.MouseLeave += opened_Leave;
+            openedEyeImage.MouseMove += opened_Move;
             // 
             // closedEyeImage
             // 
             closedEyeImage.BackgroundImage = Properties.Resources.closedeye;
-            closedEyeImage.Location = new Point(591, 186);
+            closedEyeImage.Location = new Point(508, 186);
             closedEyeImage.Name = "closedEyeImage";
             closedEyeImage.Size = new Size(32, 32);
             closedEyeImage.TabIndex = 28;
             closedEyeImage.TabStop = false;
+            closedEyeImage.Visible = false;
+            closedEyeImage.Click += closedEyeImage_Click;
+            closedEyeImage.MouseDown += closed_Down;
+            closedEyeImage.MouseLeave += closed_Leave;
+            closedEyeImage.MouseMove += closed_Move;
             // 
-            // pictureBox2
+            // closedEyeImageCopy
             // 
-            pictureBox2.BackgroundImage = Properties.Resources.closedeye;
-            pictureBox2.Location = new Point(591, 224);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(32, 32);
-            pictureBox2.TabIndex = 29;
-            pictureBox2.TabStop = false;
+            closedEyeImageCopy.BackgroundImage = Properties.Resources.closedeye;
+            closedEyeImageCopy.Location = new Point(508, 224);
+            closedEyeImageCopy.Name = "closedEyeImageCopy";
+            closedEyeImageCopy.Size = new Size(32, 32);
+            closedEyeImageCopy.TabIndex = 29;
+            closedEyeImageCopy.TabStop = false;
+            closedEyeImageCopy.Visible = false;
+            closedEyeImageCopy.Click += closedEyeImageCopy_Click;
+            closedEyeImageCopy.MouseDown += closedCpy_Down;
+            closedEyeImageCopy.MouseLeave += closedCpy_Leave;
+            closedEyeImageCopy.MouseMove += closedCpy_Move;
             // 
-            // pictureBox3
+            // openedEyeImageCopy
             // 
-            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
-            pictureBox3.Location = new Point(508, 224);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(32, 32);
-            pictureBox3.TabIndex = 30;
-            pictureBox3.TabStop = false;
-            pictureBox3.Visible = false;
+            openedEyeImageCopy.BackgroundImage = (Image)resources.GetObject("openedEyeImageCopy.BackgroundImage");
+            openedEyeImageCopy.Location = new Point(508, 224);
+            openedEyeImageCopy.Name = "openedEyeImageCopy";
+            openedEyeImageCopy.Size = new Size(32, 32);
+            openedEyeImageCopy.TabIndex = 30;
+            openedEyeImageCopy.TabStop = false;
+            openedEyeImageCopy.Visible = false;
+            openedEyeImageCopy.Click += openedEyeImageCopy_Click;
+            openedEyeImageCopy.MouseDown += openedCpy_Down;
+            openedEyeImageCopy.MouseLeave += openedCpy_Leave;
+            openedEyeImageCopy.MouseMove += openedCpy_Move;
+            // 
+            // backLabel
+            // 
+            backLabel.AutoSize = true;
+            backLabel.BackColor = Color.Transparent;
+            backLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            backLabel.ForeColor = Color.Teal;
+            backLabel.Location = new Point(233, 302);
+            backLabel.Name = "backLabel";
+            backLabel.Size = new Size(42, 20);
+            backLabel.TabIndex = 31;
+            backLabel.Text = "Back";
+            backLabel.Visible = false;
+            backLabel.Click += backLabel_Click;
+            backLabel.MouseDown += back_Down;
+            backLabel.MouseLeave += back_Leave;
+            backLabel.MouseMove += back_Move;
+            // 
+            // cancelLabel
+            // 
+            cancelLabel.AutoSize = true;
+            cancelLabel.BackColor = Color.Transparent;
+            cancelLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            cancelLabel.ForeColor = Color.Teal;
+            cancelLabel.Location = new Point(34, 408);
+            cancelLabel.Name = "cancelLabel";
+            cancelLabel.Size = new Size(54, 20);
+            cancelLabel.TabIndex = 32;
+            cancelLabel.Text = "Cancel";
+            cancelLabel.Click += cancelLabel_Click;
+            cancelLabel.MouseDown += cancel_Down;
+            cancelLabel.MouseLeave += cancel_Leave;
+            cancelLabel.MouseMove += cancel_Move;
             // 
             // signUpForm
             // 
@@ -274,8 +350,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
+            Controls.Add(cancelLabel);
+            Controls.Add(backLabel);
+            Controls.Add(openedEyeImageCopy);
+            Controls.Add(closedEyeImageCopy);
             Controls.Add(closedEyeImage);
             Controls.Add(openedEyeImage);
             Controls.Add(UserNameBox);
@@ -300,8 +378,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)closedEyeImageCopy).EndInit();
+            ((System.ComponentModel.ISupportInitialize)openedEyeImageCopy).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,7 +402,9 @@
         private TextBox UserNameBox;
         private PictureBox openedEyeImage;
         private PictureBox closedEyeImage;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox closedEyeImageCopy;
+        private PictureBox openedEyeImageCopy;
+        private Label backLabel;
+        private Label cancelLabel;
     }
 }

@@ -18,6 +18,11 @@ namespace Kepillik.Forms
         }
 
         public Point mouseLocation;
+        public bool isPasswordBlank;
+        public bool isPasswordBlankCopy;
+        public bool isEyeOpened = false;
+        public bool isEyeOpenedCopy = false;
+        public bool isButtonPressed = false;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -41,6 +46,441 @@ namespace Kepillik.Forms
                 mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
             }
+        }
+
+        private void email_Enter(object sender, EventArgs e)
+        {
+            if (emailBox.Text == "           Email")
+            {
+                emailBox.Text = "";
+                emailBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void email_Leave(object sender, EventArgs e)
+        {
+            if (emailBox.Text == "")
+            {
+
+                emailBox.Text = "           Email";
+                emailBox.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void fName_Enter(object sender, EventArgs e)
+        {
+            if (firstNameBox.Text == "First Name")
+            {
+                firstNameBox.Text = "";
+                firstNameBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void fName_Leave(object sender, EventArgs e)
+        {
+            if (firstNameBox.Text == "")
+            {
+
+                firstNameBox.Text = "First Name";
+                firstNameBox.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void lName_Enter(object sender, EventArgs e)
+        {
+            if (lastNameBox.Text == "Last Name")
+            {
+                lastNameBox.Text = "";
+                lastNameBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void lName_Leave(object sender, EventArgs e)
+        {
+            if (lastNameBox.Text == "")
+            {
+
+                lastNameBox.Text = "Last Name";
+                lastNameBox.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void age_Enter(object sender, EventArgs e)
+        {
+            if (ageBox.Text == "Age")
+            {
+                ageBox.Text = "";
+                ageBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void age_Leave(object sender, EventArgs e)
+        {
+            if (ageBox.Text == "")
+            {
+
+                ageBox.Text = "Age";
+                ageBox.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void userName_Enter(object sender, EventArgs e)
+        {
+            if (UserNameBox.Text == "     Username")
+            {
+                UserNameBox.Text = "";
+                UserNameBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+            }
+        }
+
+        private void userName_Leave(object sender, EventArgs e)
+        {
+            if (UserNameBox.Text == "")
+            {
+
+                UserNameBox.Text = "     Username";
+                UserNameBox.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void continueButton_Click(object sender, EventArgs e)
+        {
+            emailBox.Visible = false;
+            firstNameBox.Visible = false;
+            lastNameBox.Visible = false;
+            ageBox.Visible = false;
+            continueButton.Visible = false;
+            backLabel.Visible = true;
+            UserNameBox.Visible = true;
+            passBox.Visible = true;
+            repeatBox.Visible = true;
+            signUpButton.Visible = true;
+            closedEyeImage.Visible = true;
+            closedEyeImageCopy.Visible = true;
+        }
+
+        private void pass_Enter(object sender, EventArgs e)
+        {
+            if (passBox.Text == "     Password")
+            {
+                passBox.Text = "";
+                passBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+                passBox.UseSystemPasswordChar = false;
+                isPasswordBlank = true;
+            }
+            if (!isEyeOpened)
+            {
+                passBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void pass_Leave(object sender, EventArgs e)
+        {
+            if (passBox.Text == "")
+            {
+
+                passBox.Text = "     Password";
+                passBox.ForeColor = Color.DimGray;
+                passBox.UseSystemPasswordChar = false;
+                isPasswordBlank = false;
+            }
+        }
+
+        private void repeat_Enter(object sender, EventArgs e)
+        {
+            if (repeatBox.Text == "Repeat Password")
+            {
+                repeatBox.Text = "";
+                repeatBox.ForeColor = ColorTranslator.FromHtml("#3ee6af");
+                repeatBox.UseSystemPasswordChar = false;
+                isPasswordBlankCopy = true;
+            }
+            if (!isEyeOpenedCopy)
+            {
+                repeatBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void repeat_Leave(object sender, EventArgs e)
+        {
+            if (repeatBox.Text == "")
+            {
+
+                repeatBox.Text = "Repeat Password";
+                repeatBox.ForeColor = Color.DimGray;
+                repeatBox.UseSystemPasswordChar = false;
+                isPasswordBlankCopy = false;
+            }
+        }
+
+        private void closedEyeImage_Click(object sender, EventArgs e)
+        {
+            closedEyeImage.Visible = false;
+            closedEyeImage.Enabled = false;
+
+            openedEyeImage.Visible = true;
+            openedEyeImage.Enabled = true;
+            passBox.UseSystemPasswordChar = false;
+            isEyeOpened = true;
+        }
+
+        private void openedEyeImage_Click(object sender, EventArgs e)
+        {
+            openedEyeImage.Visible = false;
+            openedEyeImage.Enabled = false;
+            closedEyeImage.Visible = true;
+            closedEyeImage.Enabled = true;
+            if (isPasswordBlank)
+            {
+                passBox.UseSystemPasswordChar = true;
+            }
+            isEyeOpened = false;
+        }
+
+        private void closedEyeImageCopy_Click(object sender, EventArgs e)
+        {
+            closedEyeImageCopy.Visible = false;
+            closedEyeImageCopy.Enabled = false;
+
+            openedEyeImageCopy.Visible = true;
+            openedEyeImageCopy.Enabled = true;
+            repeatBox.UseSystemPasswordChar = false;
+            isEyeOpenedCopy = true;
+        }
+
+        private void openedEyeImageCopy_Click(object sender, EventArgs e)
+        {
+            openedEyeImageCopy.Visible = false;
+            openedEyeImageCopy.Enabled = false;
+            closedEyeImageCopy.Visible = true;
+            closedEyeImageCopy.Enabled = true;
+            if (isPasswordBlankCopy)
+            {
+                repeatBox.UseSystemPasswordChar = true;
+            }
+            isEyeOpenedCopy = false;
+        }
+
+        private void cancelLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form frm = new loginForm();
+            frm.ShowDialog();
+        }
+
+        private void signUpButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form frm = new loginForm();
+            frm.ShowDialog();
+        }
+
+        private void signUp_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void signUp_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void signUp_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void continue_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void continue_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void continue_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void backLabel_Click(object sender, EventArgs e)
+        {
+            emailBox.Visible = true;
+            firstNameBox.Visible = true;
+            lastNameBox.Visible = true;
+            ageBox.Visible = true;
+            continueButton.Visible = true;
+            backLabel.Visible = false;
+            UserNameBox.Visible = false;
+            passBox.Visible = false;
+            repeatBox.Visible = false;
+            signUpButton.Visible = false;
+            closedEyeImage.Visible = false;
+            closedEyeImageCopy.Visible = false;
+        }
+
+        private void cancel_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void cancel_Leave(object sender, EventArgs e)
+        {
+            cancelLabel.ForeColor = Color.Teal;
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void cancel_Move(object sender, MouseEventArgs e)
+        {
+            cancelLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
+
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void back_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void back_Leave(object sender, EventArgs e)
+        {
+            backLabel.ForeColor = Color.Teal;
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void back_Move(object sender, MouseEventArgs e)
+        {
+            backLabel.ForeColor = ColorTranslator.FromHtml("#15264a");
+
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void opened_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void opened_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void opened_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void closed_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void closed_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void closed_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void openedCpy_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void openedCpy_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void openedCpy_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void closedCpy_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void closedCpy_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void closedCpy_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
         }
     }
 }
