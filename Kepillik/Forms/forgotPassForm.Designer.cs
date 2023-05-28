@@ -263,6 +263,7 @@
             Name = "forgotPassForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "forgotPassForm";
+            Load += forgotPassForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

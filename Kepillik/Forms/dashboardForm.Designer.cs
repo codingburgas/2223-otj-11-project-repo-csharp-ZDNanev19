@@ -33,6 +33,7 @@
             minimizeButton = new Button();
             exitButton = new Button();
             pictureBox1 = new PictureBox();
+            listBox = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -84,12 +85,25 @@
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
+            // listBox
+            // 
+            listBox.BackColor = Color.FromArgb(0, 11, 31);
+            listBox.BorderStyle = BorderStyle.None;
+            listBox.ForeColor = Color.FromArgb(62, 230, 175);
+            listBox.FormattingEnabled = true;
+            listBox.ItemHeight = 15;
+            listBox.Location = new Point(0, 39);
+            listBox.Name = "listBox";
+            listBox.Size = new Size(375, 405);
+            listBox.TabIndex = 13;
+            // 
             // dashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(listBox);
             Controls.Add(pictureBox1);
             Controls.Add(exitButton);
             Controls.Add(minimizeButton);
@@ -99,6 +113,7 @@
             Name = "dashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "dashboardForm";
+            Load += dashboardForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -109,5 +124,6 @@
         private Button minimizeButton;
         private Button exitButton;
         private PictureBox pictureBox1;
+        private ListBox listBox;
     }
 }

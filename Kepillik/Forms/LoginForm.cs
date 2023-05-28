@@ -1,12 +1,17 @@
 
 using Kepillik.Forms;
-
+using Kepillik.Models;
+using System.Text;
+using System.Security.Cryptography;
 namespace Kepillik
 {
     public partial class loginForm : Form
     {
-        public loginForm()
+        KepillikDBContext _ctx;
+
+        public loginForm(KepillikDBContext ctx)
         {
+            _ctx = ctx;
             InitializeComponent();
         }
         public Point mouseLocation;
@@ -17,8 +22,24 @@ namespace Kepillik
         {
             WindowState = FormWindowState.Minimized;
         }
+        static string ComputeSha256Hash(string rawData)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
 
-        private void exitButton_Click(object sender, EventArgs e)
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+            private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -110,8 +131,22 @@ namespace Kepillik
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            
+            string password = ComputeSha256Hash(passBox.Text);
+          
+
+            var user = _ctx.Users
+                .Where(u => (u.Username == usernameBox.Text || u.Email == usernameBox.Text) && u.Password == password)
+                .FirstOrDefault();
+
+            if (user == null)
+            {
+                incorrectLabel.Visible = true;
+                return;
+            }
+
             this.Hide();
-            Form frm = new dashboardForm();
+            Form frm = new dashboardForm(_ctx);
             frm.ShowDialog();
         }
 
@@ -170,7 +205,7 @@ namespace Kepillik
         private void fpLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form frm = new forgotPassForm();
+            Form frm = new forgotPassForm(_ctx);
             frm.ShowDialog();
         }
 
@@ -249,8 +284,13 @@ namespace Kepillik
         private void signUpLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form frm = new signUpForm();
+            Form frm = new signUpForm(_ctx);
             frm.ShowDialog();
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,7 @@
             openedEyeImage = new PictureBox();
             pictureBox1 = new PictureBox();
             signUpLabel = new Label();
+            incorrectLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -225,12 +226,26 @@
             signUpLabel.MouseLeave += signUp_Leave;
             signUpLabel.MouseMove += signUp_Move;
             // 
+            // incorrectLabel
+            // 
+            incorrectLabel.AutoSize = true;
+            incorrectLabel.BackColor = Color.Transparent;
+            incorrectLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            incorrectLabel.ForeColor = Color.Teal;
+            incorrectLabel.Location = new Point(278, 173);
+            incorrectLabel.Name = "incorrectLabel";
+            incorrectLabel.Size = new Size(240, 20);
+            incorrectLabel.TabIndex = 13;
+            incorrectLabel.Text = "Incorrect username or password!";
+            incorrectLabel.Visible = false;
+            // 
             // loginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(incorrectLabel);
             Controls.Add(signUpLabel);
             Controls.Add(pictureBox1);
             Controls.Add(openedEyeImage);
@@ -249,6 +264,7 @@
             Name = "loginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += loginForm_Load;
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -271,5 +287,6 @@
         private PictureBox openedEyeImage;
         private PictureBox pictureBox1;
         private Label signUpLabel;
+        private Label incorrectLabel;
     }
 }

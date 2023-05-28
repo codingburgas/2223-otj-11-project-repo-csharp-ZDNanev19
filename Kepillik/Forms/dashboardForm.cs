@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Kepillik.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,15 @@ namespace Kepillik.Forms
 {
     public partial class dashboardForm : Form
     {
-        public dashboardForm()
+        public dashboardForm(KepillikDBContext ctx)
         {
             InitializeComponent();
+            this._ctx = ctx;
         }
 
         public Point mouseLocation;
+        private readonly KepillikDBContext _ctx;
+
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -41,6 +46,20 @@ namespace Kepillik.Forms
                 mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
             }
+        }
+
+        private void dashboardForm_Load(object sender, EventArgs e)
+        {
+            var products = _ctx.Products
+                .Include(p => p.Stores)
+                .ToList();
+
+            foreach (var product in products)
+            {
+                listBox.Items.Add($"{product.Manufacturer}, {product.Model}, {product.Stores.FirstOrDefault().Name}");
+            }
+
+
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Kepillik.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +12,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Security.Cryptography;
 namespace Kepillik.Forms
 {
     public partial class signUpForm : Form
     {
-        public signUpForm()
+        public signUpForm(KepillikDBContext ctx)
         {
             InitializeComponent();
+            this._ctx = ctx;
         }
 
         public Point mouseLocation;
@@ -23,6 +30,24 @@ namespace Kepillik.Forms
         public bool isEyeOpened = false;
         public bool isEyeOpenedCopy = false;
         public bool isButtonPressed = false;
+        private readonly KepillikDBContext _ctx;
+        static string ComputeSha256Hash(string rawData)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -145,6 +170,7 @@ namespace Kepillik.Forms
 
         private void continueButton_Click(object sender, EventArgs e)
         {
+
             emailBox.Visible = false;
             firstNameBox.Visible = false;
             lastNameBox.Visible = false;
@@ -264,15 +290,51 @@ namespace Kepillik.Forms
         private void cancelLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form frm = new loginForm();
+            Form frm = new loginForm(_ctx);
             frm.ShowDialog();
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
+            if (UserNameBox.Text == "" || UserNameBox.Text == "     Username" || passBox.Text == "" || passBox.Text == "     Password" || repeatBox.Text == "" || repeatBox.Text == "Repeat Password" || emailBox.Text == "" || emailBox.Text == "           Email" || firstNameBox.Text == "" || firstNameBox.Text == "First Name" || lastNameBox.Text == "" || lastNameBox.Text == "Last Name" || ageBox.Text == "" || ageBox.Text == "Age")
+            {
+                incorrectLabel.Visible = true;
+                return;
+            }
+            int number;
+            if (!int.TryParse(ageBox.Text, out number))
+            {
+                ageLabel.Visible = true;
+                return;
+            }
+
+            if (!emailBox.Text.Contains('@') || !emailBox.Text.Contains('.'))
+            {
+                wrongEmail.Visible = true;
+                return;
+            }
+            if (passBox.Text != repeatBox.Text)
+            {
+                repeatLabel.Visible = true;
+                return;
+            }
+          
+            Models.User obj = new Models.User();
+            obj.Email = emailBox.Text;
+            obj.FirstName = firstNameBox.Text;
+            obj.LastName = lastNameBox.Text;
+            obj.Username = UserNameBox.Text;
+            obj.Password = ComputeSha256Hash(passBox.Text);
+            obj.Age = int.Parse(ageBox.Text);
+            _ctx.Add(obj);
+            _ctx.SaveChanges();
+
+
+
             this.Hide();
-            Form frm = new loginForm();
+            Form frm = new loginForm(_ctx);
             frm.ShowDialog();
+
         }
 
         private void signUp_Down(object sender, MouseEventArgs e)

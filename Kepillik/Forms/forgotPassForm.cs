@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kepillik.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,12 +15,15 @@ namespace Kepillik.Forms
     public partial class forgotPassForm : Form
     {
 
-        public forgotPassForm()
+        public forgotPassForm(KepillikDBContext ctx)
         {
             InitializeComponent();
+            this._ctx = ctx;
         }
         public Point mouseLocation;
         public bool isButtonPressed = false;
+        private readonly KepillikDBContext _ctx;
+
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -124,7 +128,7 @@ namespace Kepillik.Forms
         private void cancelLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form frm = new loginForm();
+            Form frm = new loginForm(_ctx);
             frm.ShowDialog();
         }
 
@@ -145,7 +149,7 @@ namespace Kepillik.Forms
         private void goBackButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form frm = new loginForm();
+            Form frm = new loginForm(_ctx);
             frm.ShowDialog();
         }
 
@@ -243,6 +247,11 @@ namespace Kepillik.Forms
         {
             Cursor.Current = Cursors.Hand;
             isButtonPressed = true;
+        }
+
+        private void forgotPassForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

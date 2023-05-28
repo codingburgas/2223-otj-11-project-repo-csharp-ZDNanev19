@@ -49,6 +49,10 @@
             openedEyeImageCopy = new PictureBox();
             backLabel = new Label();
             cancelLabel = new Label();
+            incorrectLabel = new Label();
+            repeatLabel = new Label();
+            wrongEmail = new Label();
+            ageLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)openedEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)closedEyeImage).BeginInit();
@@ -344,12 +348,68 @@
             cancelLabel.MouseLeave += cancel_Leave;
             cancelLabel.MouseMove += cancel_Move;
             // 
+            // incorrectLabel
+            // 
+            incorrectLabel.AutoSize = true;
+            incorrectLabel.BackColor = Color.Transparent;
+            incorrectLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            incorrectLabel.ForeColor = Color.Teal;
+            incorrectLabel.Location = new Point(286, 345);
+            incorrectLabel.Name = "incorrectLabel";
+            incorrectLabel.Size = new Size(208, 20);
+            incorrectLabel.TabIndex = 33;
+            incorrectLabel.Text = "Please fill out every text box";
+            incorrectLabel.Visible = false;
+            // 
+            // repeatLabel
+            // 
+            repeatLabel.AutoSize = true;
+            repeatLabel.BackColor = Color.Transparent;
+            repeatLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            repeatLabel.ForeColor = Color.Teal;
+            repeatLabel.Location = new Point(286, 382);
+            repeatLabel.Name = "repeatLabel";
+            repeatLabel.Size = new Size(206, 20);
+            repeatLabel.TabIndex = 34;
+            repeatLabel.Text = "The password doesnt match";
+            repeatLabel.Visible = false;
+            // 
+            // wrongEmail
+            // 
+            wrongEmail.AutoSize = true;
+            wrongEmail.BackColor = Color.Transparent;
+            wrongEmail.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            wrongEmail.ForeColor = Color.Teal;
+            wrongEmail.Location = new Point(331, 362);
+            wrongEmail.Name = "wrongEmail";
+            wrongEmail.Size = new Size(114, 20);
+            wrongEmail.TabIndex = 35;
+            wrongEmail.Text = "Incorrect email";
+            wrongEmail.Visible = false;
+            // 
+            // ageLabel
+            // 
+            ageLabel.AutoSize = true;
+            ageLabel.BackColor = Color.Transparent;
+            ageLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ageLabel.ForeColor = Color.Teal;
+            ageLabel.Location = new Point(298, 408);
+            ageLabel.Name = "ageLabel";
+            ageLabel.Size = new Size(176, 20);
+            ageLabel.TabIndex = 36;
+            ageLabel.Text = "Age has to be a number";
+            ageLabel.Visible = false;
+            // 
             // signUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(ageLabel);
+            Controls.Add(wrongEmail);
+            Controls.Add(repeatLabel);
+            Controls.Add(incorrectLabel);
             Controls.Add(cancelLabel);
             Controls.Add(backLabel);
             Controls.Add(openedEyeImageCopy);
@@ -406,5 +466,9 @@
         private PictureBox openedEyeImageCopy;
         private Label backLabel;
         private Label cancelLabel;
+        private Label incorrectLabel;
+        private Label repeatLabel;
+        private Label wrongEmail;
+        private Label ageLabel;
     }
 }
