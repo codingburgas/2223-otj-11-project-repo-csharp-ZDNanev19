@@ -3,6 +3,9 @@ using Kepillik.Forms;
 using Kepillik.Models;
 using System.Text;
 using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 namespace Kepillik
 {
     public partial class loginForm : Form
@@ -133,8 +136,8 @@ namespace Kepillik
         {
             
             string password = ComputeSha256Hash(passBox.Text);
-          
 
+           
             var user = _ctx.Users
                 .Where(u => (u.Username == usernameBox.Text || u.Email == usernameBox.Text) && u.Password == password)
                 .FirstOrDefault();
@@ -144,9 +147,9 @@ namespace Kepillik
                 incorrectLabel.Visible = true;
                 return;
             }
-
+          
             this.Hide();
-            Form frm = new dashboardForm(_ctx);
+            Form frm = new dashboardForm(_ctx,user.Id);
             frm.ShowDialog();
         }
 

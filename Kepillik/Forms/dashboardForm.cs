@@ -14,15 +14,16 @@ namespace Kepillik.Forms
 {
     public partial class dashboardForm : Form
     {
-        public dashboardForm(KepillikDBContext ctx)
+        public dashboardForm(KepillikDBContext ctx, int userid)
         {
             InitializeComponent();
             this._ctx = ctx;
+            this.userid = userid;
         }
-
+        public bool isButtonPressed = false;
         public Point mouseLocation;
         private readonly KepillikDBContext _ctx;
-
+        public int userid;
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -60,6 +61,36 @@ namespace Kepillik.Forms
             }
 
 
+        }
+
+        private void add_Down(object sender, MouseEventArgs e)
+        {
+            if (isButtonPressed)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Arrow;
+            }
+        }
+
+        private void add_Leave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Arrow;
+            isButtonPressed = false;
+        }
+
+        private void add_Move(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+            isButtonPressed = true;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Form frm = new addWarrantyForm();
+            frm.ShowDialog();
         }
     }
 }

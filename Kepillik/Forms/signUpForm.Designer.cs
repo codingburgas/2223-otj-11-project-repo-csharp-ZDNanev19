@@ -251,6 +251,7 @@
             UserNameBox.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             UserNameBox.ForeColor = Color.DimGray;
             UserNameBox.Location = new Point(298, 139);
+            UserNameBox.MaxLength = 11;
             UserNameBox.Name = "UserNameBox";
             UserNameBox.Size = new Size(188, 32);
             UserNameBox.TabIndex = 26;

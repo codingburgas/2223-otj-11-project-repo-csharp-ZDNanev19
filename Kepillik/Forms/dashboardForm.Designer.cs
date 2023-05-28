@@ -34,6 +34,8 @@
             exitButton = new Button();
             pictureBox1 = new PictureBox();
             listBox = new ListBox();
+            usernameLabel = new Label();
+            addButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -97,12 +99,44 @@
             listBox.Size = new Size(375, 405);
             listBox.TabIndex = 13;
             // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.BackColor = Color.Transparent;
+            usernameLabel.Font = new Font("Segoe UI", 14.75F, FontStyle.Bold, GraphicsUnit.Point);
+            usernameLabel.ForeColor = Color.Teal;
+            usernameLabel.Location = new Point(599, 50);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(136, 28);
+            usernameLabel.TabIndex = 14;
+            usernameLabel.Text = "Hi, Jivko123!";
+            // 
+            // addButton
+            // 
+            addButton.BackColor = Color.FromArgb(0, 27, 48);
+            addButton.FlatAppearance.BorderSize = 0;
+            addButton.FlatStyle = FlatStyle.Flat;
+            addButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            addButton.ForeColor = Color.FromArgb(62, 230, 175);
+            addButton.Location = new Point(551, 159);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(184, 71);
+            addButton.TabIndex = 15;
+            addButton.Text = "Add Warranty";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
+            addButton.MouseDown += add_Down;
+            addButton.MouseLeave += add_Leave;
+            addButton.MouseMove += add_Move;
+            // 
             // dashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(addButton);
+            Controls.Add(usernameLabel);
             Controls.Add(listBox);
             Controls.Add(pictureBox1);
             Controls.Add(exitButton);
@@ -116,6 +150,7 @@
             Load += dashboardForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -125,5 +160,7 @@
         private Button exitButton;
         private PictureBox pictureBox1;
         private ListBox listBox;
+        private Label usernameLabel;
+        private Button addButton;
     }
 }
