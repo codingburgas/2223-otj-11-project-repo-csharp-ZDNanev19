@@ -36,6 +36,7 @@
             listBox = new ListBox();
             usernameLabel = new Label();
             addButton = new Button();
+            logoutLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -98,6 +99,7 @@
             listBox.Name = "listBox";
             listBox.Size = new Size(375, 405);
             listBox.TabIndex = 13;
+
             // 
             // usernameLabel
             // 
@@ -129,12 +131,29 @@
             addButton.MouseLeave += add_Leave;
             addButton.MouseMove += add_Move;
             // 
+            // logoutLabel
+            // 
+            logoutLabel.AutoSize = true;
+            logoutLabel.BackColor = Color.Transparent;
+            logoutLabel.Font = new Font("Segoe UI", 14.75F, FontStyle.Bold, GraphicsUnit.Point);
+            logoutLabel.ForeColor = Color.Teal;
+            logoutLabel.Location = new Point(615, 391);
+            logoutLabel.Name = "logoutLabel";
+            logoutLabel.Size = new Size(84, 28);
+            logoutLabel.TabIndex = 16;
+            logoutLabel.Text = "Log out";
+            logoutLabel.Click += logoutLabel_Click;
+            logoutLabel.MouseDown += logout_Down;
+            logoutLabel.MouseLeave += logout_Leave;
+            logoutLabel.MouseMove += logout_Move;
+            // 
             // dashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 11, 31);
             ClientSize = new Size(800, 450);
+            Controls.Add(logoutLabel);
             Controls.Add(addButton);
             Controls.Add(usernameLabel);
             Controls.Add(listBox);
@@ -162,5 +181,6 @@
         private ListBox listBox;
         private Label usernameLabel;
         private Button addButton;
+        private Label logoutLabel;
     }
 }

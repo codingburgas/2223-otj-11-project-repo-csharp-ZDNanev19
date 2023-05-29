@@ -147,7 +147,7 @@
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
             loginButton.ForeColor = Color.FromArgb(62, 230, 175);
-            loginButton.Location = new Point(339, 322);
+            loginButton.Location = new Point(338, 297);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(111, 40);
             loginButton.TabIndex = 7;
@@ -164,11 +164,11 @@
             fpLabel.BackColor = Color.Transparent;
             fpLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
             fpLabel.ForeColor = Color.Teal;
-            fpLabel.Location = new Point(329, 294);
+            fpLabel.Location = new Point(27, 63);
             fpLabel.Name = "fpLabel";
-            fpLabel.Size = new Size(134, 20);
+            fpLabel.Size = new Size(25, 20);
             fpLabel.TabIndex = 8;
-            fpLabel.Text = "Forgot password?";
+            fpLabel.Text = "    ";
             fpLabel.Click += fpLabel_Click;
             fpLabel.MouseDown += forgotPassDown;
             fpLabel.MouseLeave += forgotPassLeave;
@@ -216,7 +216,7 @@
             signUpLabel.BackColor = Color.Transparent;
             signUpLabel.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
             signUpLabel.ForeColor = Color.Teal;
-            signUpLabel.Location = new Point(363, 373);
+            signUpLabel.Location = new Point(362, 344);
             signUpLabel.Name = "signUpLabel";
             signUpLabel.Size = new Size(63, 20);
             signUpLabel.TabIndex = 12;

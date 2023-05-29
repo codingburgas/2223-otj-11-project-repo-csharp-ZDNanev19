@@ -149,7 +149,7 @@ namespace Kepillik
             }
           
             this.Hide();
-            Form frm = new dashboardForm(_ctx,user.Id);
+            Form frm = new dashboardForm(_ctx,user.Id,user.Username);
             frm.ShowDialog();
         }
 
